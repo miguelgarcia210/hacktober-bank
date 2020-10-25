@@ -1,4 +1,5 @@
 import java.rmi.activation.ActivationGroup_Stub;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Account {
@@ -48,6 +49,20 @@ public class Account {
         System.out.println("After " + years + " years, you balance will be: " + newBalance);
     }
 
+    // Function based on the users luck
+    void calculateLuck() {
+        Random random = new Random();
+        int lucky = random.nextInt(10);
+
+        if (lucky > 0 && lucky <= 5) {
+            System.out.println("You've just earned $100");
+            deposit(100);
+        } else {
+            System.out.println("You've lost $50. Try again next time");
+            withdraw(50);
+        }
+    }
+
     // Function showing the main menu
     void showMenu() {
         char option = '\0';
@@ -63,6 +78,7 @@ public class Account {
         System.out.println("D. View previous transaction");
         System.out.println("E. Calculate interest");
         System.out.println("F. Exit");
+        System.out.println("G. Test you luck");
 
         do {
             System.out.println();
@@ -108,6 +124,12 @@ public class Account {
                     // Case 'F' exits the user from their account
                 case 'F':
                     System.out.println("===================================");
+                    break;
+                case 'G':
+                    System.out.println("===================================");
+                    calculateLuck();
+                    System.out.println("===================================");
+                    System.out.println();
                     break;
                     // The default case let's the user know that they entered an invalid and how to enter a valid one
                 default:
