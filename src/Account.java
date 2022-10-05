@@ -6,6 +6,7 @@ public class Account {
     // Class Variables
     int balance;
     int previousTransaction;
+    int creditScore;
     String customerName;
     String customerID;
 
@@ -63,6 +64,12 @@ public class Account {
         }
     }
 
+    // Function based on users credit
+    void checkCredit() {
+        Random random = new Random();
+        creditScore = random.nextInt(850);
+    }
+
     // Function showing the main menu
     void showMenu() {
         char option = '\0';
@@ -79,6 +86,7 @@ public class Account {
         System.out.println("E. Calculate interest");
         System.out.println("F. Exit");
         System.out.println("G. Test you luck");
+        System.out.println("H. Check Credit Score");
 
         do {
             System.out.println();
@@ -128,6 +136,13 @@ public class Account {
                 case 'G':
                     System.out.println("===================================");
                     calculateLuck();
+                    System.out.println("===================================");
+                    System.out.println();
+                    break;
+                case 'H':
+                    checkCredit();
+                    System.out.println("===================================");
+                    System.out.println("Credit Score = " + creditScore);
                     System.out.println("===================================");
                     System.out.println();
                     break;
