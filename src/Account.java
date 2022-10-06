@@ -7,6 +7,7 @@ public class Account {
     int balance;
     int previousTransaction;
     int creditScore;
+    int loanEstimate;
     String customerName;
     String customerID;
 
@@ -68,6 +69,12 @@ public class Account {
     void checkCredit() {
         Random random = new Random();
         creditScore = random.nextInt(850);
+    }
+
+    // Function based on loan estimate
+    void loanEstimator() {
+        Random random = new Random();
+        loanEstimate = random.nextInt(35000);
     }
 
     // Function showing the main menu
@@ -143,6 +150,13 @@ public class Account {
                     checkCredit();
                     System.out.println("===================================");
                     System.out.println("Credit Score = " + creditScore);
+                    System.out.println("===================================");
+                    System.out.println();
+                    break;
+                case 'I':
+                    loanEstimator();
+                    System.out.println("===================================");
+                    System.out.println("Pre-Approval Amount = " + loanEstimate);
                     System.out.println("===================================");
                     System.out.println();
                     break;
