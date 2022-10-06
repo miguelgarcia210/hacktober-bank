@@ -8,6 +8,7 @@ public class Account {
     int previousTransaction;
     int creditScore;
     int loanEstimate;
+    String greeting;
     String customerName;
     String customerID;
 
@@ -75,6 +76,11 @@ public class Account {
     void loanEstimator() {
         Random random = new Random();
         loanEstimate = random.nextInt(35000);
+    }
+
+    // Function based on greeting message
+    void setGreeting(){
+        greeting = "Hello, hope you have a great day!";
     }
 
     // Function showing the main menu
@@ -157,6 +163,13 @@ public class Account {
                     loanEstimator();
                     System.out.println("===================================");
                     System.out.println("Pre-Approval Amount = " + loanEstimate);
+                    System.out.println("===================================");
+                    System.out.println();
+                    break;
+                case 'J':
+                    setGreeting();
+                    System.out.println("===================================");
+                    System.out.println(greeting);
                     System.out.println("===================================");
                     System.out.println();
                     break;
