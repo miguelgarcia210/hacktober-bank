@@ -8,6 +8,7 @@ public class Account {
     int previousTransaction;
     int creditScore;
     int loanEstimate;
+    int creditCheckDays;
     String greeting;
     String customerName;
     String customerID;
@@ -83,6 +84,12 @@ public class Account {
         greeting = "Hello, hope you have a great day!";
     }
 
+    // Function based on days until next credit check
+    void setDaysCreditCheck() {
+        Random random = new Random();
+        creditCheckDays = random.nextInt(10);
+    }
+
     // Function showing the main menu
     void showMenu() {
         char option = '\0';
@@ -100,6 +107,9 @@ public class Account {
         System.out.println("F. Exit");
         System.out.println("G. Test you luck");
         System.out.println("H. Check Credit Score");
+        System.out.println("I. Check loan pre-approval amount");
+        System.out.println("J. View today's greeting");
+        System.out.println("K. Check days until next credit report");
 
         do {
             System.out.println();
@@ -170,6 +180,13 @@ public class Account {
                     setGreeting();
                     System.out.println("===================================");
                     System.out.println(greeting);
+                    System.out.println("===================================");
+                    System.out.println();
+                    break;
+                case 'K':
+                    setDaysCreditCheck();
+                    System.out.println("===================================");
+                    System.out.println("Days until next credit check: " + creditCheckDays);
                     System.out.println("===================================");
                     System.out.println();
                     break;
